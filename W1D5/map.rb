@@ -4,11 +4,13 @@ class Map
   end
 
   def assign(key, val)
+    idx = lookup(key)
+    idx.nil? ? @contents << [key, val] : @contents.insert(idx, [key, val])
   end
 
   def lookup(key)
     idx = @contents.index { |pair| pair.first == key }
-    @contents[idx].last
+    idx.nil? ? nil : @contents[idx].last
   end
 
   def remove(key)
@@ -22,6 +24,7 @@ end
 def map_tests
   puts "Initialize map"
   map = Map.new
+  map.show
   puts "\nAssign 4 to 'kangaroo'"
   map.assign(4, 'kangaroo')
   map.show
