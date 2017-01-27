@@ -5,7 +5,7 @@ class Map
 
   def assign(key, val)
     idx = index(key)
-    idx.nil? ? @contents << [key, val] : @contents.insert(idx, [key, val])
+    idx.nil? ? @contents << [key, val] : @contents[idx] = [key, val]
   end
 
   def lookup(key)
@@ -43,6 +43,9 @@ def map_tests
   map.show
   puts "\nRemove 4 from map"
   map.remove(4)
+  map.show
+  puts "\nReassign 7 to 'wombat'"
+  map.assign(7, 'wombat')
   map.show
 end
 
