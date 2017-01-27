@@ -4,20 +4,28 @@ class Map
   end
 
   def assign(key, val)
-    idx = lookup(key)
+    idx = index(key)
     idx.nil? ? @contents << [key, val] : @contents.insert(idx, [key, val])
   end
 
   def lookup(key)
-    idx = @contents.index { |pair| pair.first == key }
+    idx = index(key)
     idx.nil? ? nil : @contents[idx].last
   end
 
   def remove(key)
+    idx = index(key)
+    idx.nil? ? nil : @contents.delete_at(idx)
   end
 
   def show
     p @contents
+  end
+
+  private
+
+  def index(key)
+    @contents.index { |pair| pair.first == key }
   end
 end
 
