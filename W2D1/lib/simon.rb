@@ -14,7 +14,10 @@ class Simon
   end
 
   def take_turn
-
+    show_sequence
+    require_sequence
+    round_success_message
+    add_random_color
   end
 
   def show_sequence
