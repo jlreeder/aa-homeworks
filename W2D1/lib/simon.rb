@@ -27,6 +27,12 @@ class Simon
 
   def show_sequence
     add_random_color
+    @seq.each do |color|
+      puts color
+      sleep 0.5
+      system('clear')
+      sleep 0.5
+    end
   end
 
   def require_sequence
