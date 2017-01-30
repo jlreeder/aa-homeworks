@@ -36,7 +36,14 @@ class Simon
   end
 
   def require_sequence
-
+    "Type the color names"
+    @seq.each do |color|
+      user_input = gets.chomp
+      if color != user_input
+        @game_over = true
+        break
+      end
+    end
   end
 
   def add_random_color
@@ -44,11 +51,11 @@ class Simon
   end
 
   def round_success_message
-
+    "Round success"
   end
 
   def game_over_message
-
+    "Game over"
   end
 
   def reset_game
