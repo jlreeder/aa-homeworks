@@ -3,15 +3,17 @@ class Board
 
   def initialize(name1, name2)
     @cups = place_stones
+    @player1 = name1
+    @player2 = name2
   end
 
   def valid_move?(start_pos)
     raise "Invalid starting cup" unless start_pos.between?(1, 14)
   end
 
-  def make_move(start_pos, current_player_name)
+  def make_move(start_pos, current_player)
     stones = pick_up_stones(start_pos)
-    distribute_stones_after(stones, start_pos)
+    distribute_stones_after(stones, start_pos, current_player)
   end
 
   def next_turn(ending_cup_idx)
@@ -47,11 +49,16 @@ class Board
     stones
   end
 
-  def distribute_stones_after(stones, start_pos)
-    pos = start_pos
-    stones.length.times do
-      pos += 1
+  def distribute_stones_after(stones, start_pos, player)
+    current_pos = start_pos
+    until stones.empty?
+      current_pos = (current_pos + 1) % cups.length
+      next if pos == opponent_cup(player)
       cups[pos] << stones.pop
     end
+  end
+
+  def opponent_cup(player)
+    player == @player1 ? 13 : 6
   end
 end
