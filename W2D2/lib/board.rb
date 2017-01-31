@@ -53,8 +53,8 @@ class Board
     current_pos = start_pos
     until stones.empty?
       current_pos = (current_pos + 1) % cups.length
-      next if pos == opponent_cup(player)
-      cups[pos] << stones.pop
+      next if current_pos == opponent_cup(player)
+      cups[current_pos] << stones.pop
     end
   end
 
