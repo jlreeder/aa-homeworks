@@ -12,9 +12,11 @@ class Board
   end
 
   def valid_move?(start_pos)
+    raise "Invalid starting cup" unless start_pos.between?(1, 14)
   end
 
   def make_move(start_pos, current_player_name)
+    stones = pick_up_stones(start_pos)
   end
 
   def next_turn(ending_cup_idx)
@@ -33,5 +35,13 @@ class Board
   end
 
   def winner
+  end
+
+  private
+
+  def pick_up_stones(pos)
+    stones = cups[pos]
+    cups[pos] = []
+    stones
   end
 end
