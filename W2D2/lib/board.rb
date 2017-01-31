@@ -13,8 +13,9 @@ class Board
 
   def make_move(start_pos, current_player)
     stones = pick_up_stones(start_pos)
-    distribute_stones_after(stones, start_pos, current_player)
+    end_pos = distribute_stones_after(stones, start_pos, current_player)
     render
+    next_turn(end_pos)
   end
 
   def next_turn(ending_cup_idx)
@@ -57,6 +58,7 @@ class Board
       next if current_pos == opponent_cup(player)
       cups[current_pos] << stones.pop
     end
+    current_pos
   end
 
   def opponent_cup(player)
