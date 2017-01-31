@@ -11,6 +11,7 @@ class Board
 
   def make_move(start_pos, current_player_name)
     stones = pick_up_stones(start_pos)
+    distribute_stones_after(stones, start_pos)
   end
 
   def next_turn(ending_cup_idx)
@@ -44,5 +45,13 @@ class Board
     stones = cups[pos]
     cups[pos] = []
     stones
+  end
+
+  def distribute_stones_after(stones, start_pos)
+    pos = start_pos
+    stones.length.times do
+      pos += 1
+      cups[pos] << stones.pop
+    end
   end
 end
