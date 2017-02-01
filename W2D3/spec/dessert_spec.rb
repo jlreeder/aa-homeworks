@@ -28,11 +28,9 @@ describe Dessert do
   end
 
   describe "#add_ingredient" do
-    let(:fondent) { "fondent" }
-    before(:each) { dessert.add_ingredient(fondent) }
-
     it "adds an ingredient to the ingredients array" do
-      expect(dessert.ingredients).to include(fondent)
+      dessert.add_ingredient("fondent")
+      expect(dessert.ingredients).to include("fondent")
     end
   end
 
