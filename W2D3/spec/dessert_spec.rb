@@ -35,14 +35,10 @@ describe Dessert do
   end
 
   describe "#mix!" do
-    let(:ingredients) { %w(sugar flour salt chocolate) }
-    before(:each) do
+    it "shuffles the ingredient array" do
+      ingredients = %w(sugar flour salt chocolate)
       ingredients.each { |i| dessert.add_ingredient(i) }
       dessert.mix!
-    end
-    subject { dessert.ingredients }
-
-    it "shuffles the ingredient array" do
       expect(subject).to_not eq(ingredients)
     end
   end
