@@ -44,11 +44,9 @@ describe Dessert do
   end
 
   describe "#eat" do
-    before(:each) { dessert.eat(2) }
-    subject { dessert.quantity }
-
     it "subtracts an amount from the quantity" do
-      expect(subject).to eq(8)
+      dessert.eat(2)
+      expect(dessert.quantity).to eq(8)
     end
 
     it "raises an error if the amount is greater than the quantity" do
@@ -57,11 +55,9 @@ describe Dessert do
   end
 
   describe "#serve" do
-    let(:title_chef) { "Chef" }
-
     it "contains the titleized version of the chef's name" do
-      allow(chef).to receive(:titleize).and_return(title_chef)
-      expect(dessert.serve).to include(title_chef)
+      allow(chef).to receive(:titleize).and_return("Le Grand Rattatouille")
+      expect(dessert.serve).to include("Le Grand Rattatouille")
     end
   end
 
