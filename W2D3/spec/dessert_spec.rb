@@ -23,7 +23,7 @@ describe Dessert do
     end
 
     it "raises an argument error when given a non-integer quantity" do
-      expect { Dessert.new("chocolate", "lots", chef) }.to raise_exception
+      expect { Dessert.new("chocolate", "lots", chef) }.to raise_error(ArgumentError)
     end
   end
 
@@ -58,7 +58,7 @@ describe Dessert do
     end
 
     it "raises an error if the amount is greater than the quantity" do
-      expect { dessert.eat(20) }.to raise_exception
+      expect { dessert.eat(20) }.to raise_error(/not enough/)
     end
   end
 
