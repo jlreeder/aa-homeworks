@@ -9,7 +9,6 @@ describe Dessert do
   let(:chef) { double("chef") }
   let(:type) { "chocolate" }
   let(:quantity) { 10 }
-  let(:wrong_quantity) { "lots" }
   subject(:dessert) { Dessert.new(type, quantity, chef) }
 
   describe "#initialize" do
@@ -26,6 +25,7 @@ describe Dessert do
       expect(dessert.ingredients).to be_empty
     end
 
+    let(:wrong_quantity) { "lots" }
     it "raises an argument error when given a non-integer quantity" do
       expect { Dessert.new(type, wrong_quantity, chef) }.to raise_exception
     end
