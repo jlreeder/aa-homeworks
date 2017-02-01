@@ -51,13 +51,19 @@ describe Dessert do
     it "shuffles the ingredient array" do
       expect(subject).to_not eq(ingredients)
     end
-
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    before(:each) { dessert.eat(2) }
+    subject { dessert.quantity }
 
-    it "raises an error if the amount is greater than the quantity"
+    it "subtracts an amount from the quantity" do
+      expect(subject).to eq(8)
+    end
+
+    it "raises an error if the amount is greater than the quantity" do
+      expect { dessert.eat(20) }.to raise_exception
+    end
   end
 
   describe "#serve" do
