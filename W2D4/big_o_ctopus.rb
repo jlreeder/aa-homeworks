@@ -1,5 +1,18 @@
 class Array
 
+  def sluggish_octopus
+    each do |fish1|
+      longest = true
+
+      each do |fish2|
+        next if fish1 == fish2
+        longest = false unless fish1.length > fish2.length
+      end
+
+      return fish1 if longest
+    end
+  end
+
   def dominant_octopus
     merge_sort.last
   end
@@ -43,6 +56,8 @@ if __FILE__ == $PROGRAM_NAME
   prey = ['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish', 'ffiiiiisshh',
           'fsh', 'fiiiissshhhhhh']
 
+  puts 'Sluggish octopus:'
+  puts prey.sluggish_octopus
   puts 'Dominant octopus:'
   puts prey.dominant_octopus
   puts 'Clever octopus:'
