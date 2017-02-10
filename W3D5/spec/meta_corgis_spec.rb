@@ -9,10 +9,12 @@ describe 'CorgiSnacks' do
 end
 
 describe 'MetaCorgiSnacks' do
-  before(:each){ m = MetaCorgiSnacks.new(SnackBox.new, 1) }
+  let(:m){ MetaCorgiSnacks.new(SnackBox.new, 1) }
 
   describe 'bone' do
-    it 'gets the right bone value'
+    it 'gets the right bone value' do
+      expect(m.bone).to eq("Bone: Phoenician rawhide: 20 ")
+    end
   end
 
   describe 'kibble' do
