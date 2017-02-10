@@ -7,3 +7,19 @@ describe 'CorgiSnacks' do
     expect(c.bone).to eq("Bone: Phoenician rawhide: 20 ")
   end
 end
+
+describe 'MetaCorgiSnacks' do
+  before(:each){ m = MetaCorgiSnacks.new(SnackBox.new, 1) }
+
+  describe 'bone' do
+    it 'gets the right bone value'
+  end
+
+  describe 'kibble' do
+    it 'gets the right kibble value'
+  end
+
+  describe 'treat' do
+    it 'gets the right treat value'
+  end
+end
