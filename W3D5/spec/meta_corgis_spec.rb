@@ -18,10 +18,8 @@ describe 'MetaCorgiSnacks' do
   end
 
   describe 'kibble' do
-    it 'gets the right kibble value'
-  end
-
-  describe 'treat' do
-    it 'gets the right treat value'
+    it 'gets the right kibble value' do
+      expect(m.kibble).to eq("* Kibble: Delicately braised hamhocks: 33 ")
+    end
   end
 end
