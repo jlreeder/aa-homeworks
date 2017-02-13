@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    # your code here
+    @books = Book.all
   end
 
   def new
@@ -12,7 +12,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    # your code here
+    Book.find(params[:id]).destroy
+    redirect_to books_url
   end
 
   private
