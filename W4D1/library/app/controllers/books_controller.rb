@@ -4,11 +4,16 @@ class BooksController < ApplicationController
   end
 
   def new
-    # your code here
+    render :new
   end
 
   def create
-    # your code here
+    new_book = Book.new(book_params)
+    if new_book.save
+      redirect_to books_url
+    else
+      render :new
+    end
   end
 
   def destroy
