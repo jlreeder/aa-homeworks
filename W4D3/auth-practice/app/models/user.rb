@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   def self.find_by_credentials(username, password)
-    User.where(username: username, password: password)
+    user = User.find_by(username: username, password: password)
+    password_valid = BCrypt::Password.create(user.password_digest)
+      .is_password?(password)
+    return user if user && password_valid
   end
 
   def self.generate_session_token
@@ -27,16 +30,16 @@ class User < ActiveRecord::Base
   end
 
   def reset_session_token!
-    @session_token = User.generate_session_token
+    self.session_token = User.generate_session_token
     self.save
   end
 
   def ensure_session_token
-    @session_token ||= User.generate_session_token
+    self.session_token ||= User.generate_session_token
   end
 
   def password=(provided_password)
     @password = provided_password
-    @password_digest = BCrypt::Password.create(provided_password)
+    self.password_digest = BCrypt::Password.create(provided_password)
   end
 end
