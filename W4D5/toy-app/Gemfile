@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'annotate'
 gem 'rails-pry'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
