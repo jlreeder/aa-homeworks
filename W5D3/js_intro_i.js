@@ -75,22 +75,22 @@ function isSubstring2(searchString, subString) {
 // isSubstring2("Jump for joy", "joys")
 
 function fizzBuzz(array) {
-    const chosen_nums = [];
+    const chosenNums = [];
 
-    for(var i = 1; i < array.length; i++) {
-        if (i % 3 === 0 || i % 5 === 0) {
-            chosen_nums.push(i);
+    array.forEach(el => {
+        if (el % 3 === 0 ^ el % 5 === 0) {
+            chosenNums.push(el);
         }
-    }
+    });
 
-    return chosen_nums;
+    return chosenNums;
 }
 
 let fizzBuzzTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 console.log(fizzBuzz(fizzBuzzTest));
 
 function isPrime(number) {
-    for(var i = 2; i < number / 2; i++) {
+    for(var i = 2; i < number; i++) {
         if (number % i === 0) {
             return false;
         }
