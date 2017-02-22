@@ -51,3 +51,75 @@ function mysteryScoping4() {
 //     console.log(x);
 // }
 
+function madLib(verb, adjective, noun) {
+    console.log(`We shall ${verb.toUpperCase()} the ${adjective.toUpperCase()} ${noun.toUpperCase()}.`);
+}
+
+// madLib('prepare', 'best', 'hummus')
+
+function isSubstring(searchString, subString) {
+    if (searchString.includes(subString)) {
+        console.log(true);
+    } else {
+        console.log(false);
+    }
+}
+
+function isSubstring2(searchString, subString) {
+    console.log(searchString.includes(subString));
+}
+
+// isSubstring("time to program", "time")
+// isSubstring("Jump for joy", "joys")
+// isSubstring2("time to program", "time")
+// isSubstring2("Jump for joy", "joys")
+
+function fizzBuzz(array) {
+    const chosen_nums = [];
+
+    for(var i = 1; i < array.length; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            chosen_nums.push(i);
+        }
+    }
+
+    return chosen_nums;
+}
+
+let fizzBuzzTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+console.log(fizzBuzz(fizzBuzzTest));
+
+function isPrime(number) {
+    for(var i = 2; i < number / 2; i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// console.log(isPrime(2));
+// console.log(isPrime(10));
+// console.log(isPrime(15485863));
+// console.log(isPrime(3548563));
+
+function sumOfNPrimes(n) {
+    let sum = 0;
+    let countPrimes = 0;
+    let i = 2;
+
+    while(countPrimes < n) {
+        if (isPrime(i)) {
+            sum += i;
+            countPrimes++;
+        }
+        i++;
+    }
+
+    return sum;
+}
+
+console.log(sumOfNPrimes(0));
+console.log(sumOfNPrimes(1));
+console.log(sumOfNPrimes(4));
