@@ -5,29 +5,23 @@ body {
     width: 900px;
 }
 
-h1 {
-    font-size: 38px;
+.content {
+    width: 700px;
+    margin: 0 auto;
 }
 
 h2 {
     font-size: 32px;
+    margin-top: 20px;
 }
 
 ul {
     list-style: none;
 }
 
-ol {
-    list-style: upper-roman inside;
-}
-
 aside {
     font-style: italic;
     margin-left: 1em;
-}
-
-.content {
-    width: 700px;
 }
 
 .content p {
@@ -38,19 +32,27 @@ aside {
     background: grey;
     color: #fff;
     border-bottom: 1px solid #ccc;
+    padding: 10px 20px 60px;
 }
 
-.header a {
+.header-label {
+    float: left;
+    font-size: 38px;
+}
+
+.header-list {
     float: right;
-    display: block;
-    padding: 20px;
-    text-decoration: none;
 }
 
-.header-nav {
-    margin: 0 auto;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+.header-list li {
+    float: left;
+    font-size: 1.3em;
+    padding: 10px;
+}
+
+.header-list a {
+    text-decoration: none;
+    color: white;
 }
 
 .ingredients li {
@@ -59,6 +61,7 @@ aside {
 }
 
 .instructions li {
+    list-style: upper-roman;
     margin: 15px 0 15px 0;
     padding: 0 0 0 15px;
 }
@@ -69,4 +72,9 @@ aside {
 
 .instructions {
     /* padding: 10px; */
+}
+
+figurecaption {
+    display: block;
+    font-style: italic;
 }
