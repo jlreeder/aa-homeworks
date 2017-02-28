@@ -1,6 +1,8 @@
 body {
     background: gainsboro;
     font-family: Arial, sans-serif;
+    margin: 0 auto;
+    width: 900px;
 }
 
 h1 {
@@ -24,10 +26,47 @@ aside {
     margin-left: 1em;
 }
 
-nav ul li a {
+.content {
+    width: 700px;
+}
+
+.content p {
+    padding:  10px 0 10px 0;
+}
+
+.header {
+    background: grey;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.header a {
+    float: right;
+    display: block;
+    padding: 20px;
     text-decoration: none;
 }
 
-ul.ingredients li:nth-of-type(2n) {
+.header-nav {
+    margin: 0 auto;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.ingredients li {
+    margin: 15px 0 15px 0;
+    padding: 0 0 0 15px;
+}
+
+.instructions li {
+    margin: 15px 0 15px 0;
+    padding: 0 0 0 15px;
+}
+
+.ingredients li:nth-of-type(2n) {
     background: whitesmoke;
+}
+
+.instructions {
+    /* padding: 10px; */
 }
