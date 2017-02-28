@@ -1,4 +1,5 @@
 body {
+    background: gainsboro;
     font-family: Arial, sans-serif;
 }
 
@@ -11,7 +12,7 @@ h2 {
 }
 
 ul {
-    list-style: square inside;
+    list-style: none;
 }
 
 ol {
@@ -27,6 +28,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-body {
-    background: gainsboro;
+ul.ingredients li:nth-of-type(2n) {
+    background: whitesmoke;
 }
