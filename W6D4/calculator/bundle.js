@@ -21536,14 +21536,28 @@
 	      num2: ""
 	    };
 	    _this.setNum1 = _this.setNum1.bind(_this);
+	    _this.setNum2 = _this.setNum2.bind(_this);
+	    _this.clear = _this.clear.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(Calculator, [{
 	    key: "setNum1",
 	    value: function setNum1(e) {
-	      var num1 = e.target.value;
-	      this.setSTate({ num1: num1 });
+	      var num1 = e.target.value ? parseInt(e.target.value) : "";
+	      this.setState({ num1: num1 });
+	    }
+	  }, {
+	    key: "setNum2",
+	    value: function setNum2(e) {
+	      var num2 = e.target.value ? parseInt(e.target.value) : "";
+	      this.setState({ num2: num2 });
+	    }
+	  }, {
+	    key: "clear",
+	    value: function clear(e) {
+	      e.preventDefault();
+	      this.setState({ num1: "", num2: "", result: 0 });
 	    }
 	  }, {
 	    key: "render",
@@ -21561,7 +21575,7 @@
 	          null,
 	          "Num1:",
 	          _react2.default.createElement("br", null),
-	          _react2.default.createElement("input", { value: this.state.num1 })
+	          _react2.default.createElement("input", { onChange: this.setNum1, value: this.state.num1 })
 	        ),
 	        _react2.default.createElement("br", null),
 	        _react2.default.createElement(
@@ -21569,7 +21583,37 @@
 	          null,
 	          "Num2:",
 	          _react2.default.createElement("br", null),
-	          _react2.default.createElement("input", { value: this.state.num2 })
+	          _react2.default.createElement("input", { onChange: this.setNum2, value: this.state.num2 })
+	        ),
+	        _react2.default.createElement("br", null),
+	        _react2.default.createElement(
+	          "button",
+	          { onClick: this.clear },
+	          "Clear"
+	        ),
+	        _react2.default.createElement("br", null),
+	        _react2.default.createElement(
+	          "button",
+	          { onClick: this.add },
+	          "Add"
+	        ),
+	        _react2.default.createElement("br", null),
+	        _react2.default.createElement(
+	          "button",
+	          { onClick: this.subtract },
+	          "Subtract"
+	        ),
+	        _react2.default.createElement("br", null),
+	        _react2.default.createElement(
+	          "button",
+	          { onClick: this.multiply },
+	          "Multiply"
+	        ),
+	        _react2.default.createElement("br", null),
+	        _react2.default.createElement(
+	          "button",
+	          { onClick: this.divide },
+	          "Divide"
 	        )
 	      );
 	    }
