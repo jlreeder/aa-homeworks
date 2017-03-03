@@ -21502,7 +21502,7 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -21528,24 +21528,29 @@
 	  function Calculator(props) {
 	    _classCallCheck(this, Calculator);
 	
-	    return _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
-	    //your code here
+	    var _this = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this, props));
+	
+	    _this.state = {
+	      result: 0,
+	      num1: "",
+	      num2: ""
+	    };
+	    return _this;
 	  }
 	
 	  //your code here
 	
 	  _createClass(Calculator, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(
-	          'h1',
+	          "h1",
 	          null,
-	          'Hello World'
-	        ),
-	        '//your code will replace this'
+	          this.state.result
+	        )
 	      );
 	    }
 	  }]);
