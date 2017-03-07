@@ -4,7 +4,7 @@ import configureStore from './store/store';
 
 import Root from './components/root';
 
-const addLoggingToDispatch = (store) => (next) => (action) => {
+const addLoggingToDispatch = (store) => (action) => {
   const dispatch = store.dispatch;
   console.log(store.getState());
   console.log(action);
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloadedState = localStorage.state ?
     JSON.parse(localStorage.state) : {};
   const store = configureStore(preloadedState);
-  const newStore = addLoggingToDispatch(store);
+  store.dispatch = addLoggingToDispatch(store);
 
   const root = document.getElementById('content');
-  ReactDOM.render(<Root store={newStore} />, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
